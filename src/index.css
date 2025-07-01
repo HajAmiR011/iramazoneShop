@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-color: #313131;
+}
+.swiper-button-next,
+.swiper-button-prev {
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  background-color: black;
+
+  &::after {
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+  }
+}
+.MuiToolbar-root {
+  padding-right: 30px;
+  justify-content: space-between;
+}
