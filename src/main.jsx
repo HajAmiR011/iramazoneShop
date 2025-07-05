@@ -6,7 +6,7 @@ import createCache from "@emotion/cache";
 import { ThemeProvider } from "@mui/material";
 import { Theme } from "./components/mui/mui.config.js";
 import "./index.css";
-
+import { BrowserRouter } from "react-router";
 const cache = createCache({
   key: "css",
   prepend: true,
@@ -16,7 +16,9 @@ createRoot(document.getElementById("root")).render(
   <StrictMode>
     <ThemeProvider theme={Theme}>
       <CacheProvider value={cache}>
-        <App />
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
       </CacheProvider>
     </ThemeProvider>
   </StrictMode>

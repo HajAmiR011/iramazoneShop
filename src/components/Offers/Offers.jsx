@@ -1,18 +1,18 @@
 import { SwiperSlide } from "swiper/react";
 import Sliders from "../Sliders/Sliders";
 import { useContext } from "react";
-import { storage } from "../../App";
+import { storage } from "../../pages/Home/Home";
 
 const Offers = () => {
   const { all } = useContext(storage);
 
   return (
     <>
-      <h1 className="max-w-[1200px] mx-auto text-3xl font-bold text-white capitalize p-3 xl:p-0">
+      <h1 className="max-w-[1200px] mt-5 mx-auto text-3xl font-bold text-white capitalize p-3 xl:p-0">
         offers
       </h1>
       <div className="w-full max-w-[1200px] mx-auto">
-        <Sliders pag={false} view={"auto"} className={"px-3 py-7"}>
+        <Sliders pag={false} view={"auto"} className={"px-3 py-5"}>
           {all
             .filter((item) => item.price < 25)
             .map((item) => {

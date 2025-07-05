@@ -2,7 +2,7 @@ import { Button } from "@mui/material";
 
 const ListTag = ({ data }) => {
   return (
-    <Button variant="text" component={"a"}>
+    <Button variant="text" className="w-full">
       {data}
     </Button>
   );

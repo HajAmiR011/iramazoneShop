@@ -14,6 +14,7 @@ import {
   ListItemIcon,
   ListItemText,
 } from "@mui/material";
+import { NavLink } from "react-router";
 
 const TemporaryDrawer = () => {
   const [open, setOpen] = React.useState(false);
@@ -31,12 +32,21 @@ const TemporaryDrawer = () => {
           flexDirection: "column",
           gap: "5px",
           padding: "10px",
+          alignItems: "center",
         }}
       >
-        <ListTag data={"home"} />
-        <ListTag data={"about"} />
-        <ListTag data={"contact"} />
-        <ListTag data={"gallery"} />
+        <NavLink className="block w-full" to={"/"}>
+          <ListTag data={"home"} />
+        </NavLink>
+        <NavLink className="block w-full">
+          <ListTag data={"about"} />
+        </NavLink>
+        <NavLink className="block w-full">
+          <ListTag data={"contact"} />
+        </NavLink>
+        <NavLink className="block w-full" to={"/gallery"}>
+          <ListTag data={"gallery"} />
+        </NavLink>
       </Box>
       <Divider />
       <List

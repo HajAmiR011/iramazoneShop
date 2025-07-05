@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { storage } from "../../App";
+import { storage } from "../../pages/Home/Home";
 import { IoIosEye } from "react-icons/io";
 import Overlay from "../Overlay/Overlay";
 
@@ -18,8 +18,8 @@ const Products = () => {
 
   return (
     <>
-      <div className="w-full max-w-[1200px] mx-auto p-3 xl:p-0">
-        <h1 className="text-3xl font-bold text-white mb-4">Products</h1>
+      <div className="w-full max-w-[1200px] mx-auto p-3 xl:p-0 my-5">
+        <h1 className="text-3xl font-bold text-white mb-5">Products</h1>
         <div className="flex flex-wrap justify-center items-center gap-5">
           {filtered.length > 0 &&
             filtered.map((item) => {

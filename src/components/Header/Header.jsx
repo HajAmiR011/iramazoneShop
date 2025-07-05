@@ -59,8 +59,23 @@ export default function Header({ submit, setter }) {
     formState: { errors },
     reset,
   } = useForm();
+
+  const Reset = () => {
+    setter((prevState) => ({ all: prevState.all, filtered: [] }));
+    reset();
+  };
+
   return (
-    <Box sx={{ flexGrow: 1, maxWidth: "1600px", marginX: "auto" }}>
+    <Box
+      sx={{
+        flexGrow: 1,
+        maxWidth: "1600px",
+        marginX: "auto",
+        position: "sticky",
+        top: "0",
+        zIndex: "10",
+      }}
+    >
       <AppBar position="static">
         <Toolbar>
           <TemporaryDrawer />
@@ -72,7 +87,10 @@ export default function Header({ submit, setter }) {
           >
             IRAMAZONE
           </Typography>
-          <form autoComplete={"off"} onSubmit={handleSubmit(submit)}>
+          <form
+            autoComplete={"off"}
+            onSubmit={submit ? handleSubmit(submit) : null}
+          >
             <Search>
               <SearchIconWrapper>
                 <IoSearchOutline size={20} />
@@ -85,10 +103,7 @@ export default function Header({ submit, setter }) {
               />
               <div
                 className="w-fit absolute right-2 top-[50%] -translate-y-1/2 cursor-pointer"
-                onClick={() => {
-                  setter((prevState) => ({ all: prevState.all, filtered: [] }));
-                  reset();
-                }}
+                onClick={setter ? Reset : null}
               >
                 <IoMdClose size={18} />
               </div>
