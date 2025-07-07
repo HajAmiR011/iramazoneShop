@@ -1,7 +1,9 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { storage } from "../../pages/Home/Home";
 import { IoIosEye } from "react-icons/io";
 import Overlay from "../Overlay/Overlay";
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 
 const Products = () => {
   const [overlay, setOverlay] = useState({
@@ -13,8 +15,21 @@ const Products = () => {
     rate: "",
     count: "",
   });
+  const [photo, setPhoto] = useState("");
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
   const { all } = useContext(storage);
   const { filtered } = useContext(storage);
+
+  useEffect(() => {
+    setTimeout(() => {
+      all.map((item) => {
+        setPhoto(item.image);
+        setTitle(item.title);
+        setDescription(item.description);
+      });
+    }, 2000);
+  });
 
   return (
     <>
@@ -68,17 +83,34 @@ const Products = () => {
                   key={item.id}
                   className="w-[300px] flex flex-col gap-2 shadow-lg rounded-md p-3 bg-white"
                 >
-                  <img
-                    src={item.image}
-                    alt={item.title}
-                    className="h-[250px] object-contain"
-                  />
-                  <h3 className="whitespace-nowrap overflow-hidden text-ellipsis font-bold text-xl">
-                    {item.title}
-                  </h3>
-                  <p className="text-md whitespace-nowrap overflow-hidden text-ellipsis">
-                    {item.description}
-                  </p>
+                  {photo ? (
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      className="h-[250px] object-contain"
+                    />
+                  ) : null}
+                  {!photo ? (
+                    <Skeleton
+                      width={"276px"}
+                      height={"250px"}
+                      baseColor="#2b2b2b"
+                    />
+                  ) : null}
+                  {title ? (
+                    <h3 className="whitespace-nowrap overflow-hidden text-ellipsis font-bold text-xl">
+                      {item.title}
+                    </h3>
+                  ) : null}
+                  {!title ? <Skeleton count={1} baseColor="#2b2b2b" /> : null}
+                  {description ? (
+                    <p className="text-md whitespace-nowrap overflow-hidden text-ellipsis">
+                      {item.description}
+                    </p>
+                  ) : null}
+                  {!description ? (
+                    <Skeleton count={1} baseColor="#2b2b2b" />
+                  ) : null}
                   <button
                     onClick={() => {
                       document.body.style.overflow = "hidden";

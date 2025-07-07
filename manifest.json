@@ -1,0 +1,12 @@
+{
+  "name": "IRAMAZONE SHOP",
+  "start_url": "/",
+  "display": "standalone",
+  "icons": [
+    {
+      "src": "./logo.webp",
+      "type": "image/webp",
+      "sizes": "256x256"
+    }
+  ]
+}

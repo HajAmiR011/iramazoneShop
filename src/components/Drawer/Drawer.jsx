@@ -35,16 +35,36 @@ const TemporaryDrawer = () => {
           alignItems: "center",
         }}
       >
-        <NavLink className="block w-full" to={"/"}>
+        <NavLink
+          className={(navDate) =>
+            navDate.isActive ? "bg-slate-200 block w-full" : "block w-full"
+          }
+          to={"/"}
+        >
           <ListTag data={"home"} />
         </NavLink>
-        <NavLink className="block w-full">
+        <NavLink
+          className={(navDate) =>
+            navDate.isActive ? "bg-slate-200 block w-full" : "block w-full"
+          }
+          to={"/about"}
+        >
           <ListTag data={"about"} />
         </NavLink>
-        <NavLink className="block w-full">
-          <ListTag data={"contact"} />
+        <NavLink
+          className={(navDate) =>
+            navDate.isActive ? "bg-slate-200 block w-full" : "block w-full"
+          }
+          to={"/blogs"}
+        >
+          <ListTag data={"blogs"} />
         </NavLink>
-        <NavLink className="block w-full" to={"/gallery"}>
+        <NavLink
+          className={(navDate) =>
+            navDate.isActive ? "bg-slate-200 block w-full" : "block w-full"
+          }
+          to={"/gallery"}
+        >
           <ListTag data={"gallery"} />
         </NavLink>
       </Box>
