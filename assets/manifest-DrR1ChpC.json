@@ -4,7 +4,7 @@
   "display": "standalone",
   "icons": [
     {
-      "src": "./logo.webp",
+      "src": "../logo.webp",
       "type": "image/webp",
       "sizes": "256x256"
     }
